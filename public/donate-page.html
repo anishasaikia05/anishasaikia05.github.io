@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donate Page</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+  <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+  <section>
+    <form action="http://localhost:3000/donate" method="POST">
+      <div>
+        <label for="email">Email: </label>
+        <input type="email" name="email" id="email">
+      </div>
+      <div>
+        <label for="amount">Enter amount: </label>
+        <input type="number" name="amount" id="amount">
+      </div>
+      <div>
+        <label for="name">Name: </label>
+        <input type="text" name="name" id="name">
+      </div>
+      <div>
+        <label for="city">City: </label>
+        <input type="text" name="city" id="city">
+      </div>
+      <div>
+        <label for="country">Country: </label>
+        <input type="text" name="country" id="country">
+      </div>
+      <button type="submit" id="checkout-button">Checkout</button>
+    </form>
+  </section>
+</body>
+
+</html>
