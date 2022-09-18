@@ -4,36 +4,38 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Donate Page</title>
-  <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+  <title>Donate</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://js.stripe.com/v3/"></script>
 </head>
 <body>
-  <section>
-    <form action="/donate" method="POST">
-      <div>
-        <label for="email">Email: </label>
-        <input type="email" name="email" id="email">
+  <div class="container">
+    <h1 class="text-info">PawsN'Claws</h1>
+    <h3 class="text-info">Fill out the given information: </h3>
+    <form class="form-horizontal" action="/donate" method="POST">
+      <div class="form-group">
+        <label class="control-label" for="email">Email: </label>
+        <input class="form-control" type="email" name="email" id="email">
       </div>
-      <div>
-        <label for="amount">Enter amount: </label>
-        <input type="number" name="amount" id="amount">
+      <div class="form-group">
+        <label class="control-label" for="amount">Enter amount: </label>
+        <input class="form-control" type="number" name="amount" id="amount">
       </div>
-      <div>
-        <label for="name">Name: </label>
-        <input type="text" name="name" id="name">
+      <div class="form-group">
+        <label class="control-label" for="name">Name: </label>
+        <input class="form-control" type="text" name="name" id="name">
       </div>
-      <div>
-        <label for="city">City: </label>
-        <input type="text" name="city" id="city">
+      <div class="form-group">
+        <label class="control-label" for="city">City: </label>
+        <input class="form-control" type="text" name="city" id="city">
       </div>
-      <div>
-        <label for="country">Country: </label>
-        <input type="text" name="country" id="country">
+      <div class="form-group">
+        <label class="control-label" for="country">Country: </label>
+        <input class="form-control" type="text" name="country" id="country">
       </div>
-      <button type="submit" id="checkout-button">Checkout</button>
+      <button class="btn btn-primary" type="submit" id="checkout-button">Checkout</button>
     </form>
-  </section>
+  </div>
 </body>
 
 </html>

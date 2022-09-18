@@ -8,7 +8,7 @@ const mail = async (email, filePath) => {
       pass: process.env.PASSWORD
     }
   }); 
-
+  
   const options = {
     from: process.env.EMAIL,
     to: email,
