@@ -51,8 +51,8 @@ router.post('/donate',
           },
         ],
         mode: 'payment',
-        success_url: "http://localhost:3000/donate/success?session_id={CHECKOUT_SESSION_ID}",
-        cancel_url: "http://localhost:3000/cancel.html"
+        success_url: `${process.env.SERVER_URL}/donate/success?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${process.env.SERVER_URL}/cancel.html`
       });
 
       const payment = new Payment({

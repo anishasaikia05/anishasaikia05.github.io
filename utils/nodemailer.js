@@ -1,4 +1,8 @@
 const nodemailer = require('nodemailer');
+const fs = require('fs')
+const { promisify } = require('util')
+
+const unlinkAsync = promisify(fs.unlink)
 
 const mail = async (email, filePath) => {
   const transporter = nodemailer.createTransport({
@@ -22,7 +26,9 @@ const mail = async (email, filePath) => {
   };
 
   return new Promise((resolve, reject) => {
-    transporter.sendMail(options, (err, info) => {
+    transporter.sendMail(options, async (err, info) => {
+      // Remove file from local storage
+      await unlinkAsync(filePath)
       if(err) {
         console.log(err.message);
         reject();
