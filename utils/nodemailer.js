@@ -21,28 +21,17 @@ const mail = async (email, filePath) => {
     }]
   };
 
-  // new Promise((resolve, reject) => {
-  //   transporter.sendMail(options, (err, info) => {
-  //     if(err) {
-  //       reject(err.message);
-  //     } else {
-  //       console.log("sent: " + info.response);
-  //       resolve(info.response);
-  //     }
-  //   })
-  // })
-let flag = 0;
- await transporter.sendMail(options, (err, info) => {
-    if(err) {
-      console.log("Hey There");
-      // return 0;
-    } else {
-      console.log("sent: " + info.response);
-      flag = 1;
-    }
-  })
-
-return flag;
+  return new Promise((resolve, reject) => {
+    transporter.sendMail(options, (err, info) => {
+      if(err) {
+        console.log(err.message);
+        reject();
+      } else {
+        console.log("sent: " + info.response);
+        resolve();
+      }
+    })
+  });
 }
 
 module.exports = mail;

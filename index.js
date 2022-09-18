@@ -10,11 +10,13 @@ app.use('/', express.static(path.join(__dirname, 'public')));
 
 // import routes
 const donate = require('./routes/donate');
+const success = require('./routes/success');
 
 const connectDB = require('./config/db');
 
 // middleware
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 const start = async () => {
@@ -33,6 +35,7 @@ const start = async () => {
 
   // use routes
   app.use(donate);
+  app.use(success);
 
   app.all('*', async (req, res, next) => {
     return res.status(404).json({ success: 'false', error: 'Route not found' });
