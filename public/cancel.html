@@ -19,9 +19,17 @@
       If you have any questions, please email
       <a href="mailto:pawsnclaws@gmail.com">pawsnclaws@gmail.com</a>
     </p>
-    <a href="http://localhost:3000/">
+    <a id="url" onclick="callURL()">
       <button class="btn btn-primary">Home</button>
     </a>
+    <script>
+      function callURL() {
+        // const host = "https://" + location.hostname + ":" + location.port;
+        const host = "https://" + location.hostname;
+        // console.log(host);
+        document.getElementById("url").setAttribute("href", host);
+      }
+    </script>
   </div>
 </body>
 
