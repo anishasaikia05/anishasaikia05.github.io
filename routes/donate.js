@@ -41,11 +41,11 @@ router.post('/donate',
         line_items: [
           {
             price_data: {
-              currency: 'usd',
+              currency: 'inr',
               product_data: {
                 name: 'Donate to PawsN\'Claws',
               },
-              unit_amount: amount * 0.013
+              unit_amount: amount * 100
             },
             quantity: 1
           },
