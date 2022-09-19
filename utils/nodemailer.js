@@ -28,7 +28,7 @@ const mail = async (email, filePath) => {
   return new Promise((resolve, reject) => {
     transporter.sendMail(options, async (err, info) => {
       // Remove file from local storage
-      await unlinkAsync(filePath)
+      // await unlinkAsync(filePath)
       if(err) {
         console.log(err.message);
         reject();
