@@ -45,7 +45,7 @@ router.post('/donate',
               product_data: {
                 name: 'Donate to PawsN\'Claws',
               },
-              unit_amount: amount * 100
+              unit_amount: amount * 0.013
             },
             quantity: 1
           },
@@ -58,7 +58,7 @@ router.post('/donate',
       const payment = new Payment({
         name, 
         email, 
-        amount: amount * 100,
+        amount: amount,
         city,
         country,
         stripeId: session.id
