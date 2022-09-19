@@ -35,13 +35,13 @@ const start = async () => {
 
   // use routes
   app.use(donate);
-  app.use(success);
+  app.use(success); 
 
   app.all('*', async (req, res, next) => {
     return res.status(404).json({ success: 'false', error: 'Route not found' });
   });
   const host  = '0.0.0.0';
-  const port = process.env.HOST || 8080;
+  const port = process.env.PORT || 8080;
   app.listen(port, host, console.log(`Listening on port ${port}`));
 
 }
