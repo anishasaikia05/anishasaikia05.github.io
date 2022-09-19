@@ -51,8 +51,8 @@ router.post('/donate',
           },
         ],
         mode: 'payment',
-        success_url: `${process.env.SERVER_URL}/donate/success?session_id={CHECKOUT_SESSION_ID}`,
-        cancel_url: `${process.env.SERVER_URL}/cancel.html`
+        success_url: `https://${req.headers.host}/donate/success?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `https://${req.headers.host}/cancel.html`
       });
 
       const payment = new Payment({
@@ -63,7 +63,7 @@ router.post('/donate',
         country,
         stripeId: session.id
       });
-
+      console.log(req.headers.host);
       await payment.save();
       res.redirect(303, session.url);
     } catch (e) {
