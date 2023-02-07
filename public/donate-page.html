@@ -5,37 +5,162 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Donate</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://js.stripe.com/v3/"></script>
+  <script src="includeHTML.js"></script>
 </head>
 <body>
   <div class="container">
-    <h1 class="text-info">PawsN'Claws</h1>
-    <h3 class="text-info">Fill out the given information: </h3>
-    <form class="form-horizontal" action="/donate" method="POST">
-      <div class="form-group">
-        <label class="control-label" for="email">Email: </label>
-        <input class="form-control" type="email" name="email" id="email">
-      </div>
-      <div class="form-group">
-        <label class="control-label" for="amount">Enter amount: </label>
-        <input class="form-control" type="number" name="amount" id="amount">
-      </div>
-      <div class="form-group">
-        <label class="control-label" for="name">Name: </label>
-        <input class="form-control" type="text" name="name" id="name">
-      </div>
-      <div class="form-group">
-        <label class="control-label" for="city">City: </label>
-        <input class="form-control" type="text" name="city" id="city">
-      </div>
-      <div class="form-group">
-        <label class="control-label" for="country">Country: </label>
-        <input class="form-control" type="text" name="country" id="country">
-      </div>
-      <button class="btn btn-primary" type="submit" id="checkout-button">Checkout</button>
-    </form>
+    <header w3-include-html="nav.html"></header>
+  <div class="flex items-center justify-center p-12">
+    <div class="mx-auto w-full max-w-[550px]">
+      <h3 class="mb-5 block text-2xl font-bold text-[#07074D]">Fill out the given information: </h3>
+      <form action="/donate" method="POST">
+        <div class="mb-5">
+          <label for="name" class="mb-3 block text-base font-medium text-[#07074D]">
+            Full Name
+          </label>
+          <input type="text" name="name" id="name" placeholder="Full Name"
+            class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
+        </div>
+        <div class="mb-5">
+          <label for="email" class="mb-3 block text-base font-medium text-[#07074D]">
+            Email Address
+          </label>
+          <input type="email" name="email" id="email" placeholder="example@domain.com"
+            class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
+        </div>
+        <div class="-mx-3 flex flex-wrap">
+          <div class="w-full px-3 sm:w-1/4">
+            <div class="mb-5">
+              <label for="currency" class="mb-3 block text-base font-medium text-[#07074D]">
+                Currency
+              </label>
+              <select name="currency" id="currency" class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">
+                <option value="USD" selected="selected">United States Dollars</option>
+                <option value="EUR">Euro</option>
+                <option value="GBP">United Kingdom Pounds</option>
+                <option value="DZD">Algeria Dinars</option>
+                <option value="ARP">Argentina Pesos</option>
+                <option value="AUD">Australia Dollars</option>
+                <option value="ATS">Austria Schillings</option>
+                <option value="BSD">Bahamas Dollars</option>
+                <option value="BBD">Barbados Dollars</option>
+                <option value="BEF">Belgium Francs</option>
+                <option value="BMD">Bermuda Dollars</option>
+                <option value="BRR">Brazil Real</option>
+                <option value="BGL">Bulgaria Lev</option>
+                <option value="CAD">Canada Dollars</option>
+                <option value="CLP">Chile Pesos</option>
+                <option value="CNY">China Yuan Renmimbi</option>
+                <option value="CYP">Cyprus Pounds</option>
+                <option value="CSK">Czech Republic Koruna</option>
+                <option value="DKK">Denmark Kroner</option>
+                <option value="NLG">Dutch Guilders</option>
+                <option value="XCD">Eastern Caribbean Dollars</option>
+                <option value="EGP">Egypt Pounds</option>
+                <option value="FJD">Fiji Dollars</option>
+                <option value="FIM">Finland Markka</option>
+                <option value="FRF">France Francs</option>
+                <option value="DEM">Germany Deutsche Marks</option>
+                <option value="XAU">Gold Ounces</option>
+                <option value="GRD">Greece Drachmas</option>
+                <option value="HKD">Hong Kong Dollars</option>
+                <option value="HUF">Hungary Forint</option>
+                <option value="ISK">Iceland Krona</option>
+                <option value="INR">India Rupees</option>
+                <option value="IDR">Indonesia Rupiah</option>
+                <option value="IEP">Ireland Punt</option>
+                <option value="ILS">Israel New Shekels</option>
+                <option value="ITL">Italy Lira</option>
+                <option value="JMD">Jamaica Dollars</option>
+                <option value="JPY">Japan Yen</option>
+                <option value="JOD">Jordan Dinar</option>
+                <option value="KRW">Korea (South) Won</option>
+                <option value="LBP">Lebanon Pounds</option>
+                <option value="LUF">Luxembourg Francs</option>
+                <option value="MYR">Malaysia Ringgit</option>
+                <option value="MXP">Mexico Pesos</option>
+                <option value="NLG">Netherlands Guilders</option>
+                <option value="NZD">New Zealand Dollars</option>
+                <option value="NOK">Norway Kroner</option>
+                <option value="PKR">Pakistan Rupees</option>
+                <option value="XPD">Palladium Ounces</option>
+                <option value="PHP">Philippines Pesos</option>
+                <option value="XPT">Platinum Ounces</option>
+                <option value="PLZ">Poland Zloty</option>
+                <option value="PTE">Portugal Escudo</option>
+                <option value="ROL">Romania Leu</option>
+                <option value="RUR">Russia Rubles</option>
+                <option value="SAR">Saudi Arabia Riyal</option>
+                <option value="XAG">Silver Ounces</option>
+                <option value="SGD">Singapore Dollars</option>
+                <option value="SKK">Slovakia Koruna</option>
+                <option value="ZAR">South Africa Rand</option>
+                <option value="KRW">South Korea Won</option>
+                <option value="ESP">Spain Pesetas</option>
+                <option value="XDR">Special Drawing Right (IMF)</option>
+                <option value="SDD">Sudan Dinar</option>
+                <option value="SEK">Sweden Krona</option>
+                <option value="CHF">Switzerland Francs</option>
+                <option value="TWD">Taiwan Dollars</option>
+                <option value="THB">Thailand Baht</option>
+                <option value="TTD">Trinidad and Tobago Dollars</option>
+                <option value="TRL">Turkey Lira</option>
+                <option value="VEB">Venezuela Bolivar</option>
+                <option value="ZMK">Zambia Kwacha</option>
+                <option value="EUR">Euro</option>
+                <option value="XCD">Eastern Caribbean Dollars</option>
+                <option value="XDR">Special Drawing Right (IMF)</option>
+                <option value="XAG">Silver Ounces</option>
+                <option value="XAU">Gold Ounces</option>
+                <option value="XPD">Palladium Ounces</option>
+                <option value="XPT">Platinum Ounces</option>
+              </select>
+            </div>
+          </div>
+          <div class="w-full px-3 sm:w-3/4">
+            <div class="mb-5">
+              <label for="amount" class="mb-3 block text-base font-medium text-[#07074D]">
+                Amount
+              </label>
+              <input type="text" name="amount" id="amount" placeholder="Enter the amount"
+                class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
+            </div>
+          </div>
+        </div>
+        <div class="-mx-3 flex flex-wrap">
+          <div class="w-full px-3 sm:w-1/2">
+            <div class="mb-5">
+              <label for="city" class="mb-3 block text-base font-medium text-[#07074D]">
+                City
+              </label>
+              <input type="text" name="city" id="city" placeholder="City"
+                class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
+            </div>
+          </div>
+          <div class="w-full px-3 sm:w-1/2">
+            <div class="mb-5">
+              <label for="country" class="mb-3 block text-base font-medium text-[#07074D]">
+                Country
+              </label>
+              <input type="text" name="country" id="country" placeholder="Country"
+                class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
+            </div>
+          </div>
+        </div>
+        <div>
+          <button
+            class="hover:shadow-form rounded-md bg-[#6A64F1] py-3 px-8 text-base font-semibold text-white outline-none">
+            Checkout
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
+  <script>
+    includeHTML();
+  </script>
 </body>
 
 </html>

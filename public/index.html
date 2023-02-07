@@ -4,15 +4,48 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <!-- <link href="output.css" rel=”stylesheet”> -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="includeHTML.js"></script>
   <title>Home Page</title>
 </head>
 <body>
   <div class="container">
-    <h1 class="text-info">Welcome to PawsN'Claws</h1>
-    <p class="text-secondary">Donate to help us look after the stray animals. Your donation will help us save more dogs and provide them basic necessities. Help us in providing shelter, meals and
-    medicine to strays dogs.</p>
-    <button class="btn btn-primary" onClick="window.location.href='./donate-page.html';">I want to donate</button>
-  </div>
+    <header w3-include-html="nav.html"></header>
+    <div class="p-7 pb-40 bg-gray-100">
+      <section
+        class="flex flex-wrap items-center font-sans mx-auto w-full lg:max-w-screen-lg sm:max-w-screen-sm md:max-w-screen-md pt-40 ">
+
+        <!-- Column-1 -->
+        <div class="px-3 w-full lg:w-3/5">
+          <div class="mx-auto mb-8 max-w-lg text-center lg:mx-0 lg:max-w-md lg:text-left">
+            <h1 class="max-w-2xl mb-4 text-4xl font-extrabold leading-none md:text-5xl xl:text-6xl dark:text-white">Save animals, serve humanity</h1>
+            <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">Donate to help us
+              look after the stray animals. Your donation will help us save more dogs and provide them basic
+              necessities. Help us in providing shelter, meals and
+              medicine to strays dogs.</p>
+          </div>
+          <div class="text-center lg:text-left">
+            <button onClick="window.location.href='./donate-page.html';"
+              class="block visible py-4 px-8 mb-4 text-xs font-semibold tracking-wide leading-none text-white bg-blue-500 rounded cursor-pointer sm:mr-3 sm:mb-0 sm:inline-block">
+            Click here to donate
+            </button>
+          </div>
+        </div>
+        <!-- Column-2 -->
+        <div class="relative px-3 mb-12 w-full lg:mb-0 lg:w-2/5">
+          <!-- Illustrations Container -->
+          <div class="relative justify-center items-center hidden top-0 left-0 lg:block">
+            <img class="relative rounded-lg object-scale-down  -top-28 left-0" src="strayCat.jpg"
+              alt="Stray cat" />
+            <img class="absolute rounded-lg object-scale-down  top-32 left-48" src="strayDog.jpg"
+              alt="Stray dog" />
+          </div>
+        </div>
+      </section>
+    </div>
+  <script>
+    includeHTML();
+  </script>
 </body>
 </html>

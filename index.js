@@ -18,7 +18,7 @@ const connectDB = require('./config/db');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
-
+ 
 const start = async () => {
   if(!process.env.MONGO_URI) {
     throw new Error('MONGO_URI must be defined');
@@ -27,11 +27,11 @@ const start = async () => {
     throw new Error('STRIPE_KEY must be defined');
   } 
 
-  try {
-    await connectDB();
-  } catch (error) {
-    console.log(err);
-  }
+  // try {
+  //   await connectDB();
+  // } catch (error) {
+  //   console.log(err);
+  // }
 
   // use routes
   app.use(donate);

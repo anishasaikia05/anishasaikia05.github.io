@@ -8,7 +8,7 @@ const { jsPDF } = require("jspdf");
 const { autoTable } = require("jspdf-autotable");
 let doc = new jsPDF('p');
 
-const invoiceGenerator = ({ _id, name, amount, city, country }) => {
+const invoiceGenerator = ({ id, name, amount, city, country }) => {
 
   doc.autoTable({
       body: [
@@ -106,7 +106,7 @@ const invoiceGenerator = ({ _id, name, amount, city, country }) => {
     });
 
     const data = doc.output()
-    const paymentId = _id.toString();
+    const paymentId = id.toString();
     const filename = `invoice_${paymentId.substring(paymentId.length - 4)}_${Date.now()}.pdf`;
     const filePath = `./invoices/${filename}`;
     fs.writeFileSync(filePath, data, 'binary')
