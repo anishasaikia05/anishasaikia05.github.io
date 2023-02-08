@@ -7,6 +7,7 @@ exports.up = function(knex) {
     tbl.uuid('id').primary()
     tbl.string('name').notNullable()
     tbl.string('email').notNullable()
+    tbl.string('currency').notNullable()
     tbl.float('amount').notNullable()
     tbl.string('city').notNullable()
     tbl.string('country').notNullable()

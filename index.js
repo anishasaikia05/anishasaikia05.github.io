@@ -12,26 +12,16 @@ app.use('/', express.static(path.join(__dirname, 'public')));
 const donate = require('./routes/donate');
 const success = require('./routes/success');
 
-const connectDB = require('./config/db');
-
 // middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
  
 const start = async () => {
-  if(!process.env.MONGO_URI) {
-    throw new Error('MONGO_URI must be defined');
-  }
+  
   if(!process.env.STRIPE_KEY) {
     throw new Error('STRIPE_KEY must be defined');
   } 
-
-  // try {
-  //   await connectDB();
-  // } catch (error) {
-  //   console.log(err);
-  // }
 
   // use routes
   app.use(donate);

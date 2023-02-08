@@ -1,9 +1,6 @@
 const router = require('express').Router();
 const stripe = require('stripe')(process.env.STRIPE_KEY);
 const { body, validationResult } = require('express-validator');
-const Payment = require('../models/payment');
-const invoiceGenerator = require('../utils/invoice-generator');
-const mail = require('../utils/nodemailer');
 const knex = require('knex');
 const config = require('../knexfile');
 const db = knex(config.development);
@@ -67,6 +64,7 @@ router.post('/donate',
           id: uuidv4(),
           name, 
           email, 
+          currency,
           amount: amount,
           city,
           country,
@@ -74,29 +72,11 @@ router.post('/donate',
         })
         .then((id) => {
           res.redirect(303, session.url);
-          //get user by id
-          // knex('payments')
-          //     .select('id', 'name', 'email', 'amount', 'city', 'country', 'stripeId', 'success', 'created_at')
-          // .where({id})
-          // .then((payment) => {
-          //   return res.json(payment[0]);
-          // })
         })
         .catch((err) => {
           // console.error(err);
           res.status(500).json({ success: false, error: err.message });
       });
-    //   const payment = new Payment({
-    //     name, 
-    //     email, 
-    //     amount: amount,
-    //     city,
-    //     country,
-    //     stripeId: session.id
-    //   });
-    //   console.log(req.headers.host);
-    //   await payment.save();
-    //   res.redirect(303, session.url);
 
     } catch (e) {
       res.status(500).json({ success: false, error: e.message });

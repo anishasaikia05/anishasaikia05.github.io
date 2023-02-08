@@ -5,8 +5,15 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="includeHTML.js"></script>
+  <script src="./includeHTML.js"></script>
   <title>Thanks for your order!</title>
+  <script>
+    function callURL() {
+      const host = "http://" + location.hostname + ":" + location.port;
+      console.log(host);
+      document.getElementById("url").setAttribute("href", host);
+    }
+  </script>
 </head>
 
 <body>
@@ -35,13 +42,9 @@
 
   <script>
     includeHTML();
-
-    function callURL() {
-        const host = "http://" + location.hostname + ":" + location.port;
-        console.log(host);
-        document.getElementById("url").setAttribute("href", host);
-    }
   </script>
+
+  
 </body>
 
 </html>

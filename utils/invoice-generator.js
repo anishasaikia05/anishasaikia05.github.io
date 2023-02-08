@@ -8,7 +8,25 @@ const { jsPDF } = require("jspdf");
 const { autoTable } = require("jspdf-autotable");
 let doc = new jsPDF('p');
 
-const invoiceGenerator = ({ id, name, amount, city, country }) => {
+const invoiceGenerator = ({ id, name, currency, amount, city, country }) => {
+
+  var currency_symbols = {
+    'USD': '$', // US Dollar
+    'EUR': '€', // Euro
+    'CRC': '₡', // Costa Rican Colón
+    'GBP': '£', // British Pound Sterling
+    'ILS': '₪', // Israeli New Sheqel
+    'INR': '₹', // Indian Rupee
+    'JPY': '¥', // Japanese Yen
+    'KRW': '₩', // South Korean Won
+    'NGN': '₦', // Nigerian Naira
+    'PHP': '₱', // Philippine Peso
+    'PLN': 'zł', // Polish Zloty
+    'PYG': '₲', // Paraguayan Guarani
+    'THB': '฿', // Thai Baht
+    'UAH': '₴', // Ukrainian Hryvnia
+    'VND': '₫', // Vietnamese Dong
+  };
 
   doc.autoTable({
       body: [
@@ -93,7 +111,7 @@ const invoiceGenerator = ({ id, name, amount, city, country }) => {
         ],
         [
           {
-            content: `${amount}`,
+            content: `${currency_symbols[currency] }${amount}`,
             styles: {
               halign:'right',
               fontSize: 20,
